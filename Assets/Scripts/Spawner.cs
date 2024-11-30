@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -13,30 +12,8 @@ public class Spawner : MonoBehaviour
     [Tooltip("Odleg³oœæ w jakiej obiekt zostanie utworzony od gracza (przed graczem) [metry].")]
     public float spawnDistance;
 
-    // UI button to call SpawnObject()
-    [Tooltip("Przycisk UI wywo³uj¹cy funkcjê SpawnObject")]
-    public Button spawnButton;
-
     // Reference to an existing instance of the GameObject
     private GameObject existingInstance;
-
-    void Start()
-    {
-        if (spawnButton == null)
-        {
-            Debug.LogWarning("Spawn button is not assigned.");
-        }
-
-        spawnButton.onClick.AddListener(SpawnObject);
-    }
-
-    void OnDestroy()
-    {
-        if (spawnButton != null)
-        {
-            spawnButton.onClick.RemoveListener(SpawnObject);
-        }
-    }
 
     public void SpawnObject()
     {
